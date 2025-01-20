@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devinez la ressource du jour</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <div class="game-container">
+
+    <aside class="control-sidebar">
+      <h3>Contrôles</h3>
+      <button id="toggle-semester" class="control-button active">Semestre</button>
+      <button id="toggle-resource" class="control-button active">Ressource</button>
+      <button id="toggle-competence" class="control-button active">Compétence</button>
+      <button id="toggle-subject" class="control-button active">Matière</button>
+    </aside>
+
+    <header>
+      <h1>Devinez la ressource du jour</h1>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <div class="input-box">
+          <input type="text" id="guess" placeholder="Entrez le code de la ressource"
+            oninput="showSuggestions(this.value)">
+          <div id="autocomplete-list" class="autocomplete-list"></div>
+        </div>
+        <button onclick="checkAnswer()">Valider</button>
+      </section>
+
+      <section class="hint-box">
+        <h2 id="resource-name" class="resource-name">Nom de la ressource</h2>
+        <div id="semestre-hint" class="box">Semestre</div>
+        <div id="resource-hint" class="box">N° Ressource</div>
+        <div id="competence-hint" class="box">Compétence</div>
+        <div id="subject-hint" class="box">Matière</div>
+      </section>
+
+      <section id="explanation-block" class="explanation-block" style="display: none;">
+        <!-- Le contenu sera inséré dynamiquement par JavaScript -->
+        <div id="semestre-box" class="box"></div>
+        <div id="resource-box" class="box"></div>
+        <div id="competence-box" class="box"></div>
+        <div id="subject-box" class="box"></div>
+      </section>
+
+      <section id="history" class="history-section">
+        <h2>Historique des guesses</h2>
+        <div id="history-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Sidebar d'information -->
+  <aside class="info-sidebar">
+    <h3>Informations</h3>
+
+    <!-- Liste déroulante pour les semestres -->
+    <div class="dropdown">
+      <button class="dropdown-button">Semestres</button>
+      <div class="dropdown-content">
+        <p>Semestre 1</p>
+        <p>Semestre 2</p>
+      </div>
+    </div>
+
+    <!-- Liste déroulante pour les compétences -->
+    <div class="dropdown">
+      <button class="dropdown-button">Compétences</button>
+      <div class="dropdown-content">
+        <p>Compétence 1 : Réalisation (conception, code, test) d'une application</p>
+        <p>Compétence 2 : Optimisation du code (temps d'éxecution, précision, consommation...)</p>
+        <p>Compétence 3 : Administration (installation, configuration) de postes réseaux</p>
+        <p>Compétence 4 : Gérer (administrer et exploiter) une base de donnée</p>
+        <p>Compétence 5 : Conduire (satisfaire les besoins utilisateurs) un projet informatique</p>
+        <p>Compétence 6 : Collaborer (acquérir les aptitudes pour travailler en équipe)</p>
+      </div>
+    </div>
+
+    <!-- Liste déroulante pour les matières -->
+    <div class="dropdown">
+      <button class="dropdown-button">Matières</button>
+      <div class="dropdown-content">
+        <p>Développement</p>
+        <p>Systèmes</p>
+        <p>Mathématiques</p>
+        <p>Communication</p>
+        <p>Projet</p>
+        <p>Réseaux</p>
+        <p>Gestion</p>
+        <p>Droit</p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

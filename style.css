@@ -1,0 +1,492 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* Police plus moderne */
+   background-color: #f4f4f4;
+   /* Couleur de fond légèrement plus douce */
+   color: #333;
+}
+
+.game-container {
+   max-width: 840px;
+   margin: 30px auto;
+   /* Marge en haut et en bas */
+   padding: 25px;
+   /* Padding augmenté */
+   background-color: #fff;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+   /* Ombre plus subtile */
+   border-radius: 10px;
+   /* Coins arrondis */
+   transition: box-shadow 0.3s ease;
+   /* Transition pour l'ombre */
+}
+
+.game-container:hover {
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+   /* Ombre plus prononcée au survol */
+}
+
+/* Style pour le sidebar d'information */
+.info-sidebar {
+   position: fixed;
+   /* Sidebar fixe pour qu'il reste visible */
+   right: 0;
+   top: 0;
+   width: 280px;
+   /* Largeur légèrement augmentée */
+   padding: 20px;
+   background-color: #ecf0f1;
+   border-left: 1px solid #ddd;
+   height: 100vh;
+   overflow-y: auto;
+}
+
+.info-sidebar h3 {
+   font-size: 1.3em;
+   /* Taille du titre légèrement augmentée */
+   color: #333;
+   margin-bottom: 20px;
+   /* Marge en bas augmentée */
+}
+
+.dropdown {
+   margin-bottom: 20px;
+   /* Marge en bas augmentée */
+}
+
+.dropdown-button {
+   background-color: #4A90E2;
+   /* Bleu plus moderne */
+   color: white;
+   padding: 12px;
+   /* Padding augmenté */
+   font-size: 17px;
+   /* Taille de la police légèrement augmentée */
+   width: 100%;
+   border: none;
+   border-radius: 6px;
+   /* Coins arrondis */
+   cursor: pointer;
+   text-align: left;
+   transition: background-color 0.3s ease;
+   /* Transition pour la couleur de fond */
+}
+
+.dropdown-button:hover {
+   background-color: #357ABD;
+   /* Bleu plus foncé au survol */
+}
+
+.dropdown-content {
+   display: none;
+   background-color: #f9f9f9;
+   /* Couleur de fond légèrement différente */
+   border: 1px solid #ddd;
+   margin-top: 5px;
+   border-radius: 6px;
+   /* Coins arrondis */
+   padding: 10px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   /* Ombre légère */
+}
+
+.dropdown-content p {
+   padding: 8px 0;
+   /* Padding ajusté */
+   margin: 0;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   /* Transition pour la couleur de fond */
+}
+
+.dropdown-content p:hover {
+   background-color: #e9e9e9;
+   /* Couleur de fond plus claire au survol */
+}
+
+/* Afficher le contenu déroulant lors du clic */
+.dropdown.active .dropdown-content {
+   display: block;
+}
+
+header {
+   text-align: center;
+   margin-bottom: 40px;
+   /* Marge en bas augmentée */
+}
+
+h1 {
+   color: #2c3e50;
+   font-size: 2.5em;
+   /* Taille du titre augmentée */
+   margin-bottom: 0;
+   /* Marge en bas réduite */
+}
+
+.input-section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 30px;
+   /* Marge en bas augmentée */
+}
+
+.input-box {
+   position: relative;
+   width: 70%;
+   margin-right: 15px;
+   /* Marge à droite */
+}
+
+.box span {
+   display: none;
+   max-width: 250px;
+   position: absolute;
+   background-color: white;
+   border: 1px solid #ddd;
+   padding: 10px;
+   border-radius: 4px;
+   z-index: 100;
+}
+
+.box:hover span {
+   display: block;
+}
+
+#guess {
+   width: 100%;
+   font-size: 17px;
+   /* Taille de la police augmentée */
+   border: 2px solid #4A90E2;
+   /* Couleur de la bordure */
+   border-radius: 6px;
+   /* Coins arrondis */
+   padding: 10px;
+   /* Padding ajouté */
+   transition: box-shadow 0.3s ease;
+   /* Transition pour l'ombre */
+}
+
+#guess:focus {
+   outline: none;
+   box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+   /* Ombre au focus */
+}
+
+button {
+   padding: 12px 25px;
+   /* Padding augmenté */
+   font-size: 17px;
+   /* Taille de la police augmentée */
+   background-color: #4A90E2;
+   /* Bleu plus moderne */
+   color: white;
+   border: none;
+   border-radius: 6px;
+   /* Coins arrondis */
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   /* Transition pour la couleur de fond */
+}
+
+button:hover {
+   background-color: #357ABD;
+   /* Bleu plus foncé au survol */
+}
+
+.autocomplete-list {
+   position: absolute;
+   background-color: white;
+   border: 1px solid #ddd;
+   width: 100%;
+   max-height: 200px;
+   /* Hauteur maximale augmentée */
+   overflow-y: auto;
+   z-index: 1000;
+   border-radius: 0 0 6px 6px;
+   /* Coins arrondis */
+}
+
+.autocomplete-list div {
+   padding: 12px;
+   /* Padding augmenté */
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   /* Transition pour la couleur de fond */
+}
+
+.autocomplete-list div:hover {
+   background-color: #f1f1f1;
+}
+
+.hint-box {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   margin: 30px 0;
+   /* Marge augmentée */
+}
+
+/* Ajout de dégradés et d'ombres pour les boîtes */
+.box {
+   padding: 15px 25px;
+   border-radius: 10px;
+   margin: 10px;
+   font-weight: bold;
+   text-align: center;
+   flex: 1;
+   min-width: 120px;
+   background: linear-gradient(145deg, #ffffff, #f0f0f0);
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Couleurs modernes pour les feedbacks */
+.green {
+   background: linear-gradient(145deg, #4CAF50, #45a049);
+   color: white;
+}
+
+.red {
+   background: linear-gradient(145deg, #F44336, #e53935);
+   color: white;
+}
+
+.orange {
+   background: linear-gradient(145deg, #FF9800, #fb8c00);
+   color: white;
+}
+
+/* Animation de tremblement pour les erreurs */
+@keyframes shake {
+   0% {
+      transform: translateX(0);
+   }
+
+   25% {
+      transform: translateX(-5px);
+   }
+
+   50% {
+      transform: translateX(5px);
+   }
+
+   75% {
+      transform: translateX(-5px);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+
+.shake {
+   animation: shake 0.4s ease-in-out;
+}
+
+/* Style pour le bouton de validation */
+button {
+   padding: 15px 30px;
+   font-size: 18px;
+   background: linear-gradient(145deg, #4A90E2, #357ABD);
+   color: white;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+   background: linear-gradient(145deg, #357ABD, #4A90E2);
+   transform: scale(1.05);
+}
+
+/* Style pour l'historique des tentatives */
+.history-item {
+   background-color: #f9f9f9;
+   border: 1px solid #e0e0e0;
+   padding: 15px;
+   margin-bottom: 15px;
+   border-radius: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+   transition: transform 0.2s ease;
+}
+
+.history-item:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.arrow-up::after {
+   content: " ↑";
+   color: black;
+   /* Vert pour la flèche vers le haut */
+}
+
+.arrow-down::after {
+   content: " ↓";
+   color: black;
+   /* Rouge pour la flèche vers le bas */
+}
+
+.resource-name {
+   width: 100%;
+   text-align: center;
+   font-size: 1.4em;
+   /* Taille de la police augmentée */
+   margin-bottom: 20px;
+   /* Marge en bas augmentée */
+   font-weight: 600;
+}
+
+.explanation-block {
+   background-color: #ecf0f1;
+   padding: 20px;
+   /* Padding augmenté */
+   border-radius: 6px;
+   /* Coins arrondis */
+   margin-top: 30px;
+   /* Marge en haut augmentée */
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   /* Ombre légère */
+}
+
+.history-section {
+   margin-top: 40px;
+   /* Marge en haut augmentée */
+}
+
+.history-item {
+   background-color: #f9f9f9;
+   border: 1px solid #e0e0e0;
+   padding: 15px;
+   /* Padding augmenté */
+   margin-bottom: 15px;
+   /* Marge en bas augmentée */
+   border-radius: 6px;
+   /* Coins arrondis */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+   /* Ombre très légère */
+}
+
+.control-sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 150px;
+   height: 100vh;
+   background-color: #f0f0f0;
+   padding: 20px;
+   z-index: 10;
+   /* S'assure qu'il reste au-dessus */
+   overflow-y: auto;
+}
+
+.control-sidebar h3 {
+   margin-bottom: 20px;
+   color: #333;
+}
+
+.control-button {
+   width: 90%;
+   padding: 10px;
+   margin-bottom: 10px;
+   background-color: #e0e0e0;
+   /* Couleur pour l'état inactif (gris clair) */
+   color: black;
+   /* On met la police en noir pour que ça soit visible */
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.control-button.inactive {
+   background-color: white;
+   /* Couleur pour l'état inactif */
+}
+
+.control-button.active {
+   background-color: #4A90E2;
+   /* Couleur pour l'état actif (bleu) */
+   color: white;
+}
+
+.control-button:hover {
+   background-color: #d0d0d0;
+}
+
+.control-button.active:hover {
+   background-color: #357ABD;
+}
+
+@media (max-width: 768px) {
+
+   /* Media query ajustée */
+   .game-container {
+      margin: 20px;
+      /* Marge réduite */
+      padding: 15px;
+      /* Padding réduit */
+   }
+
+   .input-section {
+      flex-direction: column;
+   }
+
+   .input-box {
+      width: 100%;
+      margin-bottom: 15px;
+      /* Marge en bas */
+      margin-right: 0;
+      /* Suppression de la marge à droite */
+   }
+
+   .hint-box {
+      flex-direction: column;
+   }
+
+   .box {
+      width: 100%;
+      text-align: center;
+   }
+
+   .info-sidebar {
+      position: static;
+      /* Sidebar statique en mode mobile */
+      width: 100%;
+      height: auto;
+      border-left: none;
+      border-top: 1px solid #ddd;
+      margin-top: 30px;
+      /* Marge en haut */
+   }
+
+   .container {
+      flex-direction: column-reverse;
+   }
+
+   .control-sidebar {
+      position: static;
+      width: 85%;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+      overflow-y: visible;
+   }
+}
