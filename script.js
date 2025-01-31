@@ -215,8 +215,8 @@ const COLOR_RED = "red";
 const COLOR_ORANGE = "orange";
 
 // Réponse à deviner
-//const correctAnswer = resources[Math.floor(Math.random() * resources.length)];
-const correctAnswer = resources[5];
+const correctAnswer = resources[Math.floor(Math.random() * resources.length)];
+//const correctAnswer = resources[5];
 
 console.log(correctAnswer);
 /*
